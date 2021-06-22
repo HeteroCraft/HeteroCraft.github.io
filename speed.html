@@ -41,6 +41,20 @@
                 display: inline-block;
                 vertical-align: middle;
             }
+            .ping .disconnectingcircle{
+                width: 10px;
+                height: 10px;
+                background-color: red;
+                border-radius: 50%;
+                text-align: center;
+                line-height: 50px;
+                color: #FFFFFF;
+                display: inline-block;
+                vertical-align: middle;
+            }
+            .ping .disconnected{
+                color: red;
+            }	
             .ping .connecting{
                 color: gold;
             }
@@ -91,6 +105,9 @@
 		setInterval("getSpeed()", 5000);
 		
 		function getSpeed(){
+			document.getElementById("htmlspeed").innerHTML = "无法连接到服务器, 稍后重试...";
+			document.getElementById("titlechange").innerHTML = "<title>Disconnected! _ 网络测速 _ HeteroCraft</title>";
+			document.getElementById("status").innerHTML = "<span class=\"disconnected\"><div class=\"disconnectedcircle\"></div>Disconnected!</span>";
 			var startTime = new Date().getTime();
 			var img = new Image();
 			img.src = "favicon.ico?time=" + startTime;
