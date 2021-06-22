@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -63,34 +64,38 @@
                 text-decoration: dotted;
             }
 		</style>
-		<div id="titlechange"><title>Connecting... _ Speedtest _ HeteroCraft</title></div>
+		<div id="titlechange"><title>Connecting... _ 网络测速 _ HeteroCraft</title></div>
 		<!-- Change Title of the Page -->
 	</head>
  
 	<body>
+		<!--<div>
+			单位换算：宽带512kbps=64kb/s - 1M=128kb/s - 2M=256kb/s
+		</div>-->
         <div class="main">
-            <h1>Speedtest System by HeteroCraft</h1>
-            <p>A text that you can edit it.</p>
+            <h1>异次空间在线测速系统</h1>
+            <p>使用异次空间在线测速系统， 获取您当前与异次空间服务器的延迟情况。<br />
+            下载速度与请求时长越短, 您的使用体验越佳。</p>
             <hr>
         </div>
         <br><br>
         <div class="ping">
-            <h3>STATUS:&nbsp;&nbsp;&nbsp;<span id="status"><span class="connecting"><div class="connectingcircle"></div>Connecting...</span></span></h3>
+            <h3>Github 服务器连接情况:&nbsp;&nbsp;&nbsp;<span id="status"><span class="connecting"><div class="connectingcircle"></div>Connecting...</span></span></h3>
         </div>
-		<div class="ping" id="htmlspeed"><br>Connecting... Please wait...<br></div>
-		<footer>&copy; <a href="//www.heterocraft.com">HeteroCraft Studio</a> 2020-2021<br /><a href="//www.github.com/HeteroCraft/speedtest/">Github <img src="https://img.shields.io/github/stars/HeteroCraft/speedtest.svg" /></a> <br></footer>
-		<!-- You can edit this line but do not remove the top words of this page! -->
+		<div class="ping" id="htmlspeed"><br>正在连接到服务器... 请耐心等待...<br></div>
+		<footer>&copy; <a href="//www.heterocraft.com">HeteroCraft Studio</a> 2020-2021<br />
+		<a href="//github.com/HeteroCraft/speedtest">在Github上Clone一个自己玩! <img src="https://img.shields.io/github/stars/HeteroCraft/speedtest.svg" /></a></footer>
 	</body>
 	
 	<script>
-		setInterval("getSpeed()", 1000);
+		setInterval("getSpeed()", 5000);
 		
 		function getSpeed(){
 			var startTime = new Date().getTime();
 			var img = new Image();
-			img.src = "https://git.heterocraft.com/favicon.ico?time=" + startTime;
+			img.src = "favicon.ico?time=" + startTime;
 			img.onload = function(){
-				// The size of image (Edit it by your heart)
+				// 图片大小
 				var size = 119 * 121;
 				var endTime = new Date().getTime();
 				var speed = parseInt(size / (endTime - startTime));
@@ -99,8 +104,8 @@
 					speed = (speed / 1024).toFixed(2);
 					unit = "MB/S";
 				}
-				document.getElementById("htmlspeed").innerHTML = "Downloading speed: "+ speed + unit + "<br/>Require time: " + (endTime - startTime) + "ms";
-				document.getElementById("titlechange").innerHTML = "<title>"+ speed + unit + " | " + (endTime - startTime) + "ms _ Speedtest _ HeteroCraft</title>";
+				document.getElementById("htmlspeed").innerHTML = "下载速度: "+ speed + unit + "<br/>请求用时: " + (endTime - startTime) + "ms";
+				document.getElementById("titlechange").innerHTML = "<title>"+ speed + unit + " | " + (endTime - startTime) + "ms _ 网络测速 _ HeteroCraft</title>";
 				document.getElementById("status").innerHTML = "<span class=\"connected\"><div class=\"connectedcircle\"></div>Connected!</span>";
 			};
 		}
