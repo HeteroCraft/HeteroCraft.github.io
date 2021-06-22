@@ -1,1 +1,1 @@
-VISIT THIS PAGE: git.heterocraft.com
+VISIT THIS PAGE: www.heterocraft.com
